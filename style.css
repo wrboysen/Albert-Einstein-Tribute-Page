@@ -1,12 +1,19 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
 #main {
   background-color: black;
 }
 #wrapper {
-  margin-top: 60px;
+  margin-top: 40px;
   margin-bottom: 0;
-  margin-left: auto;
-  margin-right: auto;
-  width: 60%;
+  margin-left: 40px;
+  margin-right: 40px;
+  max-width: 100%;
+  padding: 10px;
   background-color: black;
 }
 #title {
@@ -25,51 +32,60 @@ h2 {
 p {
   color: #e8e8e8;
 }
-#img-div {
+
+body {
+  margin: 0;
 }
+
 #image {
   border: double #e8e8e8;
   border-radius: 15px;
-  align: center;
-  max-width: 90%;
+  max-width: 100%;
 }
 #img-caption {
   text-align: center;
 }
-#tribute-link {
+
+.responsive {
+	max-width: 100%;
+	height: auto;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 }
-.center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+
+nav {
+    font-weight: bold;
+    text-transform: uppercase;
+    background-image: linear-gradient(to bottom, #333333, black);
+    position: fixed;
+    margin: 0 0 0 0;
+    top: 0px;
+    z-index: 9999;
+    width: 100%;
 }
-.navbar {
-  z-index: 999;
-  position: fixed;
-  top: 0;
-  background-image: linear-gradient(to bottom, #333333, black);
-  text-align: center;
-  left: 0;
-  right: 0;
-  margin: auto;
-  text-transform: uppercase;
+
+nav ul {
+text-align: center;
+margin: 0;
+padding: 0;
+list-style: none;
+}  
+
+nav li {
+  display: inline;
 }
-.navbar li {
+
+nav li a {
   display: inline-block;
-  list-style: none;
-  border-right: 1px solid #e8e8e8;
-}
-.navbar li:last-child {
-  border-right: none;
-}
-.navbar a {
-  color: #e8e8e8;
+  color: white;
+  text-align: center;
   text-decoration: none;
   padding: 0 30px;
-  float: left;
   padding-top: 10px;
   padding-bottom: 10px;
 }
+
 .about-container {
   padding: 20px;
   flex: 1;
@@ -93,22 +109,28 @@ p {
 }
 .quote-container {
   padding: 20px;
-  flex: 1;
-  display: inline-grid;
-  grid-gap: 20px 20px;
-  grid-template-columns: auto auto;
-  grid-template-rows: auto auto auto;
+  max-width: 100%;
+}
+
+.quote-row {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
 }
 .quote-item {
+  flex-basis: 45%;
+  -ms-flex: auto;
+  position: relative;
   color: #e8e8e8;
-  width: auto;
-  height: 200px;
+  max-width: 100%;
+  height: auto;
   border: double #e8e8e8;
   border-radius: 15px;
   padding: 25px;
   opacity: .9;
   text-align: left;
   background-image: radial-gradient(circle, #333333, black);
+  margin: 10px;
 }
 .quote{
   font-family: 'Allan', Georgia, Times, serif;
@@ -137,7 +159,44 @@ p {
 }
 footer {
   width: 300px;
-  align: right;
   margin-left: auto;
   background-image: radial-gradient(circle, #333333, black);
 }
+
+@media screen and (max-width: 768px) {
+	#wrapper {
+		margin-top: 180px;
+		margin-left: 20px;
+		margin-right: 20px;
+	}
+	
+	header {
+		max-width: 100%;
+  }
+  
+  nav li {
+		display: block;	
+		width: 100%;
+		border-right: none;
+  }
+  
+  @media(max-width: 1333px) {
+    .quote-item {
+      flex-basis: 45%;
+    }
+  }
+  @media(max-width: 1073px) {
+     .quote-item {
+      flex-basis: 45%;
+    }
+  }
+  @media(max-width: 815px) {
+    .quote-item {
+      flex-basis: 45%;
+    }
+  }
+  @media(max-width: 555px) {
+    .quote-item {
+      flex-basis: 100%;
+    }
+  }
